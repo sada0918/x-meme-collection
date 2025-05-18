@@ -1,7 +1,127 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.iconLight {
+  color: #3b82f6;
+}
+
+.iconDark {
+  color: #60a5fa;
+}
+
+.title {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.titleLight {
+  color: #374151;
+}
+
+.titleDark {
+  color: #d1d5db;
+}
+
+.count {
+  font-size: 0.75rem;
+}
+
+.countLight {
+  color: #9ca3af;
+}
+
+.countDark {
+  color: #6b7280;
+}
+
+.content {
+  min-height: 12rem;
+}
+
+.tweetsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tweetWrapper {
+  transition: all 0.5s;
+}
+
+.tweetContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.tweetContainer > div {
+  width: 100%;
+  max-width: 36rem;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.emptyStateLight {
+  color: #6b7280;
+}
+
+.emptyStateDark {
+  color: #9ca3af;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerText {
+  font-size: 0.75rem;
+}
+
+.footerTextLight {
+  color: #4b5563;
+}
+
+.footerTextDark {
+  color: #9ca3af;
+}
+
+.footerCount {
+  font-size: 0.75rem;
+}
+
+.footerCountLight {
+  color: #9ca3af;
+}
+
+.footerCountDark {
+  color: #6b7280;
+}
+
+@media (min-width: 640px) {
+  .icon {
+    height: 1.25rem;
+    width: 1.25rem;
+  }
+
+  .title {
+    font-size: 0.875rem;
+  }
+}
