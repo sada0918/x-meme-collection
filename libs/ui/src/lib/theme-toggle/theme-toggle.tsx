@@ -1,4 +1,4 @@
-import styles from './ThemeToggle.module.css';
+import styles from './theme-toggle.module.css';
 import { Theme } from '@x-meme-collection/shared-interfaces';
 
 export interface ThemeToggleProps {
@@ -13,7 +13,9 @@ export function ThemeToggle({ theme, setSpecificTheme }: ThemeToggleProps) {
   return (
     <div className={styles.container}>
       <div
-        className={`${styles.toggleContainer} ${theme === 'dark' ? styles.dark : styles.light}`}
+        className={`${styles.toggleContainer} ${
+          theme === 'dark' ? styles.dark : styles.light
+        }`}
       >
         <div className={styles.toggleButtons}>
           <button

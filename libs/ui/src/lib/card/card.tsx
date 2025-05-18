@@ -1,4 +1,4 @@
-import styles from './Card.module.css';
+import styles from './card.module.css';
 import { Theme } from '@x-meme-collection/shared-interfaces';
 
 export interface CardProps {
