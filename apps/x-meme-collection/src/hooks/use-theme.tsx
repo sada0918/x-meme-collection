@@ -1,20 +1,26 @@
 import { useState, useEffect } from 'react';
-import { useRecoilState } from 'recoil';
 import { Theme } from '@x-meme-collection/shared-interfaces';
-import { themeState } from '@/app/atoms/theme-atoms';
 
 /**
- * テーマの状態管理とロジックを扱うカスタムフック (Recoilを使用)
+ * テーマの状態管理とロジックを扱うカスタムフック (LocalStorageを使用)
  */
 export const useTheme = () => {
-  const [theme, setTheme] = useRecoilState(themeState);
+  // クライアントサイドレンダリング時のみ実行されるように
+  const [theme, setThemeState] = useState<Theme>('light');
   const [mounted, setMounted] = useState(false);
+
+  // テーマ状態を更新する関数
+  const setTheme = (newTheme: Theme) => {
+    setThemeState(newTheme);
+    // ローカルストレージに保存
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', newTheme);
+    }
+  };
 
   // テーマの初期設定
   useEffect(() => {
     setMounted(true);
-
-    if (!mounted) return;
 
     // システム設定の監視を設定
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
@@ -39,19 +45,17 @@ export const useTheme = () => {
     return () => {
       mediaQuery.removeEventListener('change', handleSystemThemeChange);
     };
-  }, [mounted, setTheme]);
+  }, []);
 
   // テーマ切替
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
   };
 
   // 特定のテーマを設定
   const setSpecificTheme = (newTheme: Theme) => {
     setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
   };
 
   // テーマに応じた背景グラデーション効果
