@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import styles from './page.module.css';
-import { useTheme } from '@x-meme-collection/ui/state/themeState';
-import Header from '../components/Header/Header';
-import MemeImageLane from '../components/MemeImageLane/MemeImageLane';
-import TweetContainer from '../components/TweetContainer/TweetContainer';
-import Footer from '../components/Footer/Footer';
-import { useMemeData } from '../hooks/useMemeData';
+import { useTheme } from '@/hooks/use-theme';
+import { useMemeData } from '@/hooks/use-meme-data';
+import Header from './components/header/header';
+import MemeImageLane from './components/meme-image-lane/meme-image-lane';
+import TweetContainer from './components/tweet-container/tweet-container';
+import Footer from './components/footer/footer';
 
 /**
  * アプリケーションのメインページ
