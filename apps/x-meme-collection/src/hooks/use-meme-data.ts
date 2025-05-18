@@ -14,20 +14,50 @@ export const useMemeData = () => {
 
   // 修正したモックデータ
   const mockMemeImages: MemeImage[] = [
-    { id: 'meme1', src: '/images/meme1.jpg', alt: '面白いミーム画像1' },
-    { id: 'meme2', src: '/images/meme2.jpg', alt: '面白いミーム画像2' },
-    { id: 'meme3', src: '/images/meme3.jpg', alt: '面白いミーム画像3' },
+    {
+      id: 'aomine',
+      src: '/meme-images/aomine.jpg',
+      alt: '青峰',
+    },
+    {
+      id: 'aomine2',
+      src: '/meme-images/aomine.jpg',
+      alt: '青峰',
+    },
+    {
+      id: 'aomine3',
+      src: '/meme-images/aomine.jpg',
+      alt: '青峰',
+    },
+    {
+      id: 'aomine4',
+      src: '/meme-images/aomine.jpg',
+      alt: '青峰',
+    },
   ];
 
   // モックツイートIDのマッピング
   const mockTweetMapping: Record<string, string[]> = {
-    meme1: ['1234567890123456789', '2345678901234567890'],
-    meme2: [
-      '3456789012345678901',
-      '4567890123456789012',
-      '5678901234567890123',
+    aomine: [
+      '1917513692163498304',
+      '1920783669263786213',
+      '1918823508097786303',
     ],
-    meme3: ['6789012345678901234'],
+    aomine2: [
+      '1921174389766209860',
+      '1920783669263786213',
+      '1918823508097786303',
+    ],
+    aomine3: [
+      '1921174389766209860',
+      '1920783669263786213',
+      '1918823508097786303',
+    ],
+    aomine4: [
+      '1917513692163498304',
+      '1920783669263786213',
+      '1918823508097786303',
+    ],
   };
 
   // 初期ロード時にモック画像を設定

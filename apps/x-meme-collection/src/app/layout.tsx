@@ -1,6 +1,5 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
-import RecoilProvider from './providers/recoil-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,9 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja" suppressHydrationWarning>
-      <body className={inter.className}>
-        <RecoilProvider>{children}</RecoilProvider>
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
