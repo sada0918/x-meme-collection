@@ -1,37 +1,60 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import styles from './page.module.css';
-import { useTheme } from '@/hooks/use-theme';
-import { useMemeData } from '@/hooks/use-meme-data';
-import Header from './components/header/header';
-import MemeImageLane from './components/meme-image-lane/meme-image-lane';
-import TweetContainer from './components/tweet-container/tweet-container';
-import Footer from './components/footer/footer';
+import { useCachedTheme } from '@/hooks/use-cached-theme';
+import { useSwrMemeData } from '@/hooks/use-swr-meme-data';
+import dynamic from 'next/dynamic';
+
+// コンポーネントの動的インポート（code splitting）
+const Header = dynamic(() => import('./components/header/header'), {
+  ssr: false,
+  loading: () => <div className={styles.headerPlaceholder}></div>,
+});
+
+const MemeImageLane = dynamic(
+  () => import('./components/meme-image-lane/meme-image-lane'),
+  {
+    ssr: false,
+    loading: () => <div className={styles.lanePlaceholder}></div>,
+  }
+);
+
+const TweetContainer = dynamic(
+  () => import('./components/tweet-container/tweet-container'),
+  {
+    ssr: false,
+    loading: () => <div className={styles.tweetContainerPlaceholder}></div>,
+  }
+);
+
+const Footer = dynamic(() => import('./components/footer/footer'), {
+  ssr: false,
+});
 
 /**
- * アプリケーションのメインページ
+ * アプリケーションのメインページ（キャッシュ対応版）
  */
 export default function Home() {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  // テーマ関連のフック
+  // 改善したキャッシュ対応のフック
   const {
     theme,
     mounted: themeMounted,
     setSpecificTheme,
     bgStyle,
-  } = useTheme();
+  } = useCachedTheme();
 
-  // ミームデータ関連のフック
+  // SWRを使用したキャッシュ対応のデータフック
   const {
     selectedMemeImage,
     tweetIds,
     isLoading,
     memeImages,
     handleImageSelect,
-  } = useMemeData();
+  } = useSwrMemeData();
 
   // ページのロード完了状態を管理
   useEffect(() => {
@@ -44,23 +67,27 @@ export default function Home() {
     return () => clearTimeout(timer);
   }, []);
 
+  // メインクラス名をメモ化
+  const mainClassName = useMemo(
+    () => `${styles.main} ${theme === 'dark' ? styles.dark : styles.light}`,
+    [theme]
+  );
+
+  // コンテナクラス名をメモ化
+  const containerClassName = useMemo(
+    () =>
+      `${styles.container} ${isPageLoaded ? styles.loaded : styles.loading}`,
+    [isPageLoaded]
+  );
+
+  // ページがまだマウントされていない場合のプレースホルダー
   if (!mounted || !themeMounted) {
-    // 最初の表示時のフラッシュを防ぐためのプレースホルダー
     return <div className={styles.placeholder}></div>;
   }
 
   return (
-    <main
-      className={`${styles.main} ${
-        theme === 'dark' ? styles.dark : styles.light
-      }`}
-      style={bgStyle}
-    >
-      <div
-        className={`${styles.container} ${
-          isPageLoaded ? styles.loaded : styles.loading
-        }`}
-      >
+    <main className={mainClassName} style={bgStyle}>
+      <div className={containerClassName}>
         {/* ヘッダー */}
         <Header theme={theme} setSpecificTheme={setSpecificTheme} />
 
