@@ -1,0 +1,28 @@
+.footer {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  text-align: center;
+}
+
+.copyright {
+  font-size: 0.75rem;
+}
+
+.copyrightLight {
+  color: #9ca3af;
+}
+
+.copyrightDark {
+  color: #4b5563;
+}
+
+@media (min-width: 640px) {
+  .footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+  }
+  
+  .copyright {
+    font-size: 0.875rem;
+  }
+}

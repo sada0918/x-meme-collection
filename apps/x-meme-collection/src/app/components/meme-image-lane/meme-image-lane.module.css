@@ -1,0 +1,115 @@
+.container {
+  margin-bottom: 2rem;
+}
+
+.laneContainer {
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.laneContainerLight {
+  background-color: #f3f4f6;
+}
+
+.laneContainerDark {
+  background-color: #1f2937;
+}
+
+.title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.titleLight {
+  color: #374151;
+}
+
+.titleDark {
+  color: #d1d5db;
+}
+
+.imageList {
+  display: flex;
+  overflow-x: auto;
+  padding-top: 0.5rem;
+  padding-bottom: 0.75rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  gap: 0.75rem;
+}
+
+.imageItem {
+  position: relative;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.unselected {
+  opacity: 0.75;
+}
+
+.unselected:hover {
+  opacity: 1;
+}
+
+.selected {
+  transform: scale(1.05);
+}
+
+.imageContainer {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.selectedImageContainer {
+  ring-width: 2px;
+}
+
+.imageContainerLight.selectedImageContainer {
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.imageContainerDark.selectedImageContainer {
+  box-shadow: 0 0 0 2px #60a5fa;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.indicator {
+  position: absolute;
+  bottom: -0.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+}
+
+.indicatorLight {
+  background-color: #3b82f6;
+}
+
+.indicatorDark {
+  background-color: #60a5fa;
+}
+
+@media (min-width: 640px) {
+  .imageContainer {
+    width: 7rem;
+    height: 7rem;
+  }
+}

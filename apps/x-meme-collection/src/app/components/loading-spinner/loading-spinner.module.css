@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+  border-radius: 9999px;
+  border-width: 2px;
+  border-style: solid;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  height: 2rem;
+  width: 2rem;
+}
+
+.spinnerLight {
+  border-top-color: #3b82f6;
+  border-right-color: #3b82f6;
+}
+
+.spinnerDark {
+  border-top-color: #60a5fa;
+  border-right-color: #60a5fa;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

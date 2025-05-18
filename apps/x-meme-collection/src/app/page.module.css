@@ -1,2 +1,46 @@
-.page {
+.main {
+  min-height: 100vh;
+  transition: colors 0.5s;
+}
+
+.dark {
+  background-color: #0a0a0a;
+  color: #ededed;
+}
+
+.light {
+  background-color: #f9fafb;
+  color: #171717;
+}
+
+.container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 1rem;
+  transition: opacity 1s;
+}
+
+.loading {
+  opacity: 0;
+}
+
+.loaded {
+  opacity: 1;
+}
+
+.placeholder {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+@media (prefers-color-scheme: dark) {
+  .placeholder {
+    background-color: #0a0a0a;
+  }
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 1.5rem;
+  }
 }

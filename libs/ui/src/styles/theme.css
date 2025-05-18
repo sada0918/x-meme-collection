@@ -1,0 +1,26 @@
+@import './variables.css';
+
+.light {
+  --background: var(--background-light);
+  --foreground: var(--foreground-light);
+  --primary-color: var(--primary-color-light);
+  --primary-hover-color: var(--primary-hover-color-light);
+  --secondary-color: var(--secondary-color-light);
+  --secondary-hover-color: var(--secondary-hover-color-light);
+}
+
+.dark {
+  --background: var(--background-dark);
+  --foreground: var(--foreground-dark);
+  --primary-color: var(--primary-color-dark);
+  --primary-hover-color: var(--primary-hover-color-dark);
+  --secondary-color: var(--secondary-color-dark);
+  --secondary-hover-color: var(--secondary-hover-color-dark);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--background-dark);
+    --foreground: var(--foreground-dark);
+  }
+}
