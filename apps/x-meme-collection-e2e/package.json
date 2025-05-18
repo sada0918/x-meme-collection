@@ -1,0 +1,10 @@
+{
+  "name": "x-meme-collection-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "x-meme-collection"
+    ]
+  }
+}
